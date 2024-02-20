@@ -1,12 +1,22 @@
-export default function Main() {
-  return (
-    <main className="h-screen flex flex-col bg-emerald-100">
-      <div className="flex flex-row h-10 bg-gray-600"></div>
+import { useState } from "react";
 
+export default function Main() {
+  const [isMainVisible, setIsMainVisible] = useState(true);
+  const [isWeatherVisible, setIsWeatherVisible] = useState(false); // Lägg till tillstånd för att hålla reda på synligheten av "Dagens väder"
+
+  return (
+    <main className="h-screen flex flex-col">
+      {/* <div className="flex flex-row h-10 bg-gray-600"></div> */}
       <div className="flex flex-row">
         {/* ASIDE */}
-        <aside className=" p-2 flex flex-col border border-gray-300 w-1/5 gap-2">
-          <div className="flex items-center h-20 border border-b-2 border-gray-400 pl-2">
+        <aside className="p-2 flex flex-col border border-gray-300 w-1/5 gap-2">
+          <div
+            className="flex items-center h-20 border border-b-2 border-gray-400 pl-2"
+            onClick={() => {
+              setIsMainVisible(!isMainVisible);
+              setIsWeatherVisible(false); // Göm "Dagens väder" när "Översikt Väder" klickas på
+            }}
+          >
             Översikt Väder
           </div>
           <div className="flex items-center h-20 border border-b-2 border-gray-400 pl-2">
@@ -27,31 +37,70 @@ export default function Main() {
         </aside>
 
         {/* Main */}
-        <div className="flex flex-1 flex-col border border-gray-300 w-4/5 gap-2 p-2">
-          <div className="items-center flex border border-gray-400 h-20 p-2">
-            Måndag
+        {isMainVisible && (
+          <div className="flex flex-1 flex-col border border-gray-300 w-4/5 gap-2 p-2">
+            <div
+              className="items-center flex border border-gray-400 h-20 p-2"
+              onClick={() => {
+                setIsWeatherVisible(!isWeatherVisible); // Toggla synligheten av "Dagens väder" när en veckodag klickas på
+              }}
+            >
+              Måndag
+            </div>
+            <div
+              className="items-center flex border border-gray-400 h-20 p-2"
+              onClick={() => {
+                setIsWeatherVisible(!isWeatherVisible);
+              }}
+            >
+              Tisdag
+            </div>
+            <div
+              className="items-center flex border border-gray-400 h-20 p-2"
+              onClick={() => {
+                setIsWeatherVisible(!isWeatherVisible);
+              }}
+            >
+              Onsdag
+            </div>
+            <div
+              className="items-center flex border border-gray-400 h-20 p-2"
+              onClick={() => {
+                setIsWeatherVisible(!isWeatherVisible);
+              }}
+            >
+              Torsdag
+            </div>
+            <div
+              className="items-center flex border border-gray-400 h-20 p-2"
+              onClick={() => {
+                setIsWeatherVisible(!isWeatherVisible);
+              }}
+            >
+              Fredag
+            </div>
+            <div
+              className="items-center flex border border-gray-400 h-20 p-2"
+              onClick={() => {
+                setIsWeatherVisible(!isWeatherVisible);
+              }}
+            >
+              Lördag
+            </div>
+            <div
+              className="items-center flex border border-gray-400 h-20 p-2"
+              onClick={() => {
+                setIsWeatherVisible(!isWeatherVisible);
+              }}
+            >
+              Söndag
+            </div>
           </div>
-          <div className="items-center flex border border-gray-400 h-20 p-2">
-            Tisdag
-          </div>
-          <div className="items-center flex border border-gray-400 h-20 p-2">
-            Onsdag
-          </div>
-          <div className="items-center flex border border-gray-400 h-20 p-2">
-            Torsdag
-          </div>
-          <div className="items-center flex border border-gray-400 h-20 p-2">
-            Fredag
-          </div>
-          <div className="items-center flex border border-gray-400 h-20 p-2">
-            Lördag
-          </div>
-          <div className="items-center flex border border-gray-400 h-20 p-2">
-            Söndag
-          </div>
-        </div>
+        )}
+        {!isMainVisible && <div className="flex-1"></div>}
         <div className="flex-1">
-          <h2>Dagens väder:</h2>
+          {isWeatherVisible && <h2>Dagens väder:</h2>}{" "}
+          {/* Visa "Dagens väder" om isWeatherVisible är sant */}
         </div>
       </div>
     </main>

@@ -1,20 +1,14 @@
 import Footer from "./Footer";
 import Header from "./Header";
 import Main from "./Main";
-
-// import backgroundImage from "./assets/winterland.webp.jpg";
-
-// const AppContainer = styled.div`
-//   background-image: url(${backgroundImage});
-//   background-size: cover;
-//   background-position: center;
-//   width: 100vw;
-//   height: 100vh;
-// `;
+import winterlandImage from "./assets/winterland.webp";
 
 function App() {
   return (
-    <div>
+    <div
+      className="bg-cover bg-center h-20 bg-no-repeat"
+      style={{ backgroundImage: `url(${winterlandImage})` }}
+    >
       <Header />
       <Main />
       <Footer />
