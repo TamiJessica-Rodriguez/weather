@@ -1,8 +1,9 @@
+
 export default function Header() {
   return (
     <header className="flex flew-row h-20">
       <div className="flex items-center justify-center border border-gray-300 text-center w-2/6">
-        Jessica väder app
+        Välkommer till min väderapplikation
       </div>
       <div className="flex items-center justify-center border w-1/6 border border-gray-300">
         Väder
