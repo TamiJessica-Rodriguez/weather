@@ -16,7 +16,7 @@ export default function Main() {
             Prognoser
           </div>
           <div className="flex items-center h-20 border border-b-2 border-gray-400 pl-2">
-            Radar och sattelit
+            Radar och satteliter
           </div>
           <div className="flex items-center h-20 border border-b-2 border-gray-400 pl-2">
             Observationer
@@ -50,7 +50,9 @@ export default function Main() {
             Söndag
           </div>
         </div>
-        <div className="flex-1">div höger</div>
+        <div className="flex-1">
+          <h2>Dagens väder:</h2>
+        </div>
       </div>
     </main>
   );
