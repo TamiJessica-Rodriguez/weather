@@ -20,7 +20,7 @@ export default function Main() {
             Översikt Väder
           </div>
           <div className="flex items-center h-20 border border-b-2 border-gray-400 pl-2">
-            Varningar och brandrisk
+            Book a Trip
           </div>
           <div className="flex items-center h-20 border border-b-2 border-gray-400 pl-2">
             Prognoser

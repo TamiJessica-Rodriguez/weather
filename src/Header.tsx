@@ -17,7 +17,7 @@ export default function Header() {
   return (
     <header className="flex flew-row h-20">
       {name ? (
-        <div className="flex items-center justify-center border border-gray-300 text-center w-2/6">
+        <div className="flex items-center justify-center border border-gray-500 text-center w-2/6">
           Välkommen till min väderapplikation, {name}!
         </div>
       ) : (

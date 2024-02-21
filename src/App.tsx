@@ -1,13 +1,13 @@
 import Footer from "./Footer";
 import Header from "./Header";
 import Main from "./Main";
-import winterlandImage from "./assets/winterland.webp";
+import MainBackground from "./assets/mainBackground.webp";
 
 function App() {
   return (
     <div
-      className="bg-cover bg-center h-20 bg-no-repeat"
-      style={{ backgroundImage: `url(${winterlandImage})` }}
+      className="bg-cover bg-center bg-fixed h-screen"
+      style={{ backgroundImage: `url(${MainBackground})` }}
     >
       <Header />
       <Main />
