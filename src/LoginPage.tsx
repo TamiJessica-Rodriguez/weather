@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 import LoginImage from "./assets/loginPage.webp";
 
 export default function LoginPage() {
@@ -31,7 +31,7 @@ export default function LoginPage() {
         {" "}
         <form className="flex flex-col items-center gap-3 mt-8 ">
           <label className="p-3 text-white" htmlFor="username">
-            Enter you username
+            Enter your username
           </label>
           <input
             className="h-10 rounded-md"
@@ -46,7 +46,7 @@ export default function LoginPage() {
 
       <div className="flex items-center justify-center w-1/3">
         {" "}
-        <Link to="/app">
+        <Link to={{ pathname: "/app", state: { username: username } }}>
           <button
             className={`bg-gray-500 text-white py-2 px-4 rounded-md shadow-md hover:bg-gray-800 ${
               isUsernameValid ? "" : "opacity-50 cursor-not-allowed"
@@ -56,7 +56,6 @@ export default function LoginPage() {
             Enter
           </button>
         </Link>
-        <Outlet />
       </div>
     </div>
   );

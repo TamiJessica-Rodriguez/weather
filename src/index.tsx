@@ -6,18 +6,17 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
+import Activities from "./Activities.tsx";
 import App from "./App.tsx";
 import LoginPage from "./LoginPage.tsx";
-import TripOptions from "./TripOptions.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" Component={LoginPage}></Route>
-      <Route Component={App}>
-        <Route path="/trips" Component={TripOptions} />
-        <Route path="*" element={<span>Sidan finns inte...</span>} />
-      </Route>
+      <Route path="/app" Component={App}></Route>
+      <Route path="/activities" Component={Activities}></Route>
+      <Route path="*" element={<span>Sidan finns inte...</span>}></Route>
     </>
   )
 );

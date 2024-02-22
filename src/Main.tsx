@@ -1,12 +1,14 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Main() {
-  const [isMainVisible, setIsMainVisible] = useState(true);
-  const [isWeatherVisible, setIsWeatherVisible] = useState(false); // Lägg till tillstånd för att hålla reda på synligheten av "Dagens väder"
+  const location = useLocation();
+  const [isMainVisible, setIsMainVisible] = useState(false); // Set initial state to false
+  const [isWeatherVisible, setIsWeatherVisible] = useState(false);
+  const { username } = location.state || {};
 
   return (
-    <main className="h-screen flex flex-col">
+    <main className="h-screen flex flex-col gap-2">
       {/* <div className="flex flex-row h-10 bg-gray-600"></div> */}
       <div className="flex flex-row">
         {/* ASIDE */}
@@ -15,15 +17,15 @@ export default function Main() {
             className="flex items-center h-20 border border-b-2 border-gray-400 pl-2"
             onClick={() => {
               setIsMainVisible(!isMainVisible);
-              setIsWeatherVisible(false); // Göm "Dagens väder" när "Översikt Väder" klickas på
+              setIsWeatherVisible(false);
             }}
           >
             Översikt Väder
           </div>
 
-          <Link to="/TripOptions">
+          <Link to="/Activities">
             <div className="flex items-center h-20 border border-b-2 border-gray-400 pl-2">
-              Book a Trip
+              Activities
             </div>
           </Link>
 
@@ -47,7 +49,7 @@ export default function Main() {
             <div
               className="items-center flex border border-gray-400 h-20 p-2"
               onClick={() => {
-                setIsWeatherVisible(!isWeatherVisible); // Toggla synligheten av "Dagens väder" när en veckodag klickas på
+                setIsWeatherVisible(!isWeatherVisible);
               }}
             >
               Måndag
@@ -104,10 +106,10 @@ export default function Main() {
         )}
         {!isMainVisible && <div className="flex-1"></div>}
         <div className="flex-1">
-          {isWeatherVisible && <h2>Dagens väder:</h2>}{" "}
-          {/* Visa "Dagens väder" om isWeatherVisible är sant */}
+          {isWeatherVisible && <h2>Dagens väder:</h2>}
         </div>
       </div>
+      {username && <h1>Välkommen, {username}!</h1>}
     </main>
   );
 }
