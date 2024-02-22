@@ -89,7 +89,7 @@ const App = () => {
   };
 
   return (
-    <div className="container mx-auto p-4 bg-gray-400 gap-2 rounded-md m-2">
+    <div className="container mx-auto p-4 bg-gray-400 gap-2 rounded-md m-3 h-screen">
       <form onSubmit={handleSubmit} className="mb-4">
         <div>
           <input
@@ -97,7 +97,7 @@ const App = () => {
             value={title}
             onChange={handleTitleChange}
             placeholder="Title"
-            className={`input input-bordered w-full mb-2 ${
+            className={`input input-bordered w-full mb-2 rounded-md p-2 ${
               errors.title ? "border-2 border-red-500" : ""
             }`}
           />
@@ -112,7 +112,7 @@ const App = () => {
             value={text}
             onChange={handleTextChange}
             placeholder="Text"
-            className={`textarea textarea-bordered w-full mb-2 ${
+            className={`textarea textarea-bordered w-full mb-2 rounded-md p-2 ${
               errors.text ? "border-2 border-red-500" : ""
             }`}
             maxLength="50"
@@ -128,7 +128,7 @@ const App = () => {
             type="date"
             value={date}
             onChange={handleDateChange}
-            className={`input input-bordered w-full mb-2 ${
+            className={`input input-bordered w-full mb-2 rounded-md p-2 ${
               errors.date ? "border-2 border-red-500" : ""
             }`}
           />
@@ -137,7 +137,7 @@ const App = () => {
           )}
         </div>
         <input type="file" onChange={handleImageChange} className="file mb-2" />
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-primary rounded-md p-2 flex border border-gray-50 text-white">
           Add Activity
         </button>
       </form>
