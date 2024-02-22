@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Main() {
   const [isMainVisible, setIsMainVisible] = useState(true);
@@ -19,9 +20,13 @@ export default function Main() {
           >
             Översikt Väder
           </div>
-          <div className="flex items-center h-20 border border-b-2 border-gray-400 pl-2">
-            Book a Trip
-          </div>
+
+          <Link to="/TripOptions">
+            <div className="flex items-center h-20 border border-b-2 border-gray-400 pl-2">
+              Book a Trip
+            </div>
+          </Link>
+
           <div className="flex items-center h-20 border border-b-2 border-gray-400 pl-2">
             Prognoser
           </div>

@@ -8,14 +8,16 @@ import {
 } from "react-router-dom";
 import App from "./App.tsx";
 import LoginPage from "./LoginPage.tsx";
+import TripOptions from "./TripOptions.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" Component={LoginPage}></Route>
-      
-      <Route path="/app" Component={App} />
-      <Route path="*" element={<span>Sidan finns inte...</span>} />
+      <Route Component={App}>
+        <Route path="/trips" Component={TripOptions} />
+        <Route path="*" element={<span>Sidan finns inte...</span>} />
+      </Route>
     </>
   )
 );

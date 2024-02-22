@@ -1,23 +1,63 @@
+import { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
-import MoonImage from "./assets/moon.webp";
+import LoginImage from "./assets/loginPage.webp";
 
 export default function LoginPage() {
+  const [username, setUsername] = useState("");
+
+  const handleInputChange = (event) => {
+    setUsername(event.target.value);
+  };
+
+  const isUsernameValid = username.length >= 5;
+
   return (
     <div
-      className="flex flex-col justify-center items-center bg-cover bg-center bg-fixed h-screen justify-between"
-      style={{ backgroundImage: `url("${MoonImage}")` }}
+      className="flex flex-col bg-cover bg-center bg-fixed h-screen"
+      style={{ backgroundImage: `url("${LoginImage}")` }}
     >
-      <header class="flex m-3 bold text-white text-lg">
-        Jessicas Väder App
+      <header className="flex bold text-white text-lg h-20">
+        <div
+          className="flex items-center justify-center flex-1"
+          style={{ fontFamily: "Merriweather, sans-serif" }}
+        >
+          EARTH-MINGLE
+        </div>
+        <div className="flex-1"></div>
+        <div className="flex-1"></div>
       </header>
-      <form action="name">
-        <label htmlFor="username">Användarnamn:</label>
-        <input type="text" id="username" name="username" />
-      </form>
-      <Link to="/app">
-        <button className="bg-purple-50">Knapp</button>
-      </Link>
-      <Outlet />
+
+      <div className=" w-1/3 h-1/5">
+        {" "}
+        <form className="flex flex-col items-center gap-3 mt-8 ">
+          <label className="p-3 text-white" htmlFor="username">
+            Enter you username
+          </label>
+          <input
+            className="h-10 rounded-md"
+            type="text"
+            id="username"
+            name="username"
+            value={username}
+            onChange={handleInputChange}
+          />
+        </form>
+      </div>
+
+      <div className="flex items-center justify-center w-1/3">
+        {" "}
+        <Link to="/app">
+          <button
+            className={`bg-gray-500 text-white py-2 px-4 rounded-md shadow-md hover:bg-gray-800 ${
+              isUsernameValid ? "" : "opacity-50 cursor-not-allowed"
+            }`}
+            disabled={!isUsernameValid}
+          >
+            Enter
+          </button>
+        </Link>
+        <Outlet />
+      </div>
     </div>
   );
 }
