@@ -9,6 +9,7 @@ import {
 import Activities from "./Activities.tsx";
 import Adventures from "./Adventures.tsx";
 import App from "./App.tsx";
+import Booking from "./Booking.tsx";
 import LoginPage from "./LoginPage.tsx";
 
 const router = createBrowserRouter(
@@ -18,6 +19,7 @@ const router = createBrowserRouter(
       <Route path="/app" Component={App}></Route>
       <Route path="/activities" Component={Activities}></Route>
       <Route path="/adventures" Component={Adventures}></Route>
+      <Route path="/booking" Component={Booking}></Route>
       <Route path="*" element={<span>Sidan finns inte...</span>}></Route>
     </>
   )

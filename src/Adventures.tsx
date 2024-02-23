@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import AdventureImage from "./assets/gray.webp";
 
 export default function Adventures() {
@@ -36,10 +37,13 @@ export default function Adventures() {
 
   return (
     <div
-      className="bg-cover bg-center bg-fixed h-screen flex justify-center"
+      className="bg-cover bg-center bg-fixed h-screen flex justify-center flex-col"
       style={{ backgroundImage: `url(${AdventureImage})` }}
     >
-      <div className="border container flex justify-center border-gray-800 m-4 rounded-md gap-4 p-4 flex ">
+      <div className="flex items-center justify-center font-extrabold h-20">
+        Choose your favourite!{" "}
+      </div>
+      <div className="border flex justify-center border-gray-800 m-4 rounded-md gap-4 p-4 flex ">
         {/* Iterate over mockedAdventures and render each adventure */}
         {mockedAdventures.map((adventure, index) => (
           <div
@@ -49,11 +53,13 @@ export default function Adventures() {
             <h2 className="font-bold p-3">{adventure.title}</h2>
             <p className="p-3">{adventure.description}</p>
             <div className="bg-black border border-white p-4 h-64">
-              <img
-                src={adventure.url}
-                alt="Activity"
-                className="w-full h-full object-cover"
-              />
+              <Link to="/Booking">
+                <img
+                  src={adventure.url}
+                  alt="ActivityImage"
+                  className="w-full h-full object-cover"
+                />
+              </Link>
             </div>
           </div>
         ))}
