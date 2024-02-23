@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import FormComponent from "./FormComponent";
 import ListComponent from "./ListComponent";
-import ActivityImage from "./assets/pinkEarth.webp";
+import ActivityImage from "./assets/darkEarth.webp";
 
 interface Activity {
   id: number;
@@ -14,7 +14,7 @@ interface Activity {
 }
 
 const Activity = () => {
-  const [activities, setActivities] = useState<Activity[]>([]); // Provide type annotation for activities
+  const [activities, setActivities] = useState<Activity[]>([]);
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
   const [image, setImage] = useState(null);

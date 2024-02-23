@@ -29,13 +29,16 @@ const ListComponent: React.FC<Props> = ({
   return (
     <div className="grid grid-cols-3 gap-4 p-4">
       {activities.map((activity) => (
-        <div key={activity.id} className="bg-white shadow-md rounded-md p-4">
+        <div
+          key={activity.id}
+          className="text-white shadow-md rounded-md p-4 border border-gray-200 bg-gradient-to-r to-blue-"
+        >
           {activity.imageUrl && (
             <div className="image">
               <img
                 src={activity.imageUrl}
                 alt="Activity"
-                className="w-1/2 h-auto rounded-md"
+                className="w-full h-auto rounded-md"
               />
             </div>
           )}
