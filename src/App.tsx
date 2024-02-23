@@ -5,7 +5,10 @@ import Main from "./Main";
 
 function App() {
   return (
-    <div className="bg-cover bg-center bg-fixed h-screen">
+    <div
+      className="bg-cover bg-center bg-fixed h-screen"
+      // style={{ backgroundImage: `url("${MainBackground}")` }}
+    >
       <Header />
       <Main />
       <Footer />

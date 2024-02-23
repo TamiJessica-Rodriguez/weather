@@ -1,13 +1,24 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import Slideshow from "./Slideshow"; // Importera den nya komponenten
-import MiddleImage from "./assets/earthPinkStringerShades.webp";
+import MiddleImage from "./assets/activities.webp";
+
+interface WeatherData {
+  cloud_cover: number;
+  interval: number;
+  is_day: number;
+  rain: number;
+  time: string;
+  weather_code: number;
+  hourly_units: {
+    temperature_2m: string;
+  };
+}
 
 export default function Main() {
   const location = useLocation();
   const [isMainVisible, setIsMainVisible] = useState(false);
   const [isWeatherVisible, setIsWeatherVisible] = useState(false);
-  const [weatherData, setWeatherData] = useState(null);
+  const [weatherData, setWeatherData] = useState<WeatherData>();
   const { username } = location.state || {};
 
   const fetchWeatherData = async () => {
@@ -16,6 +27,7 @@ export default function Main() {
         "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current=is_day,rain,weather_code,cloud_cover&hourly=temperature_2m,weather_code&daily=sunset,daylight_duration&models=best_match"
       );
       const data = await response.json();
+      console.log(data);
       setWeatherData(data);
     } catch (error) {
       console.error("Error fetching weather data:", error);
@@ -23,9 +35,9 @@ export default function Main() {
   };
 
   return (
-    <main className="h-screen flex flex-col gap-2 ">
+    <main className="h-screen flex flex-col gap-4">
       <div
-        className="flex border border-bottom w-full h-40 bg-cover bg-center bg-fixed"
+        className="flex border border-bottom w-full h-60 bg-cover bg-center bg-fixed"
         style={{ backgroundImage: `url("${MiddleImage}")` }}
       >
         <div className="flex-1"></div>
@@ -34,14 +46,8 @@ export default function Main() {
             <input
               type="text"
               placeholder="Search"
-              className="border border-gray-300 p-2 mr-2 rounded-2xl"
+              className="border border-gray-300 p-2 mr-2 rounded-2xl w-4/5"
             />
-            <button
-              type="submit"
-              className=" rounded-md py-2 px-4 bg-white border border-gray-500 hover:bg-gray-600 rounded-md"
-            >
-              Submit
-            </button>
           </form>
         </div>
         <div className="flex-1">
@@ -50,7 +56,7 @@ export default function Main() {
       </div>
       <div className="flex flex-row">
         {/* ASIDE */}
-        <aside className="p-2 flex flex-col border border-gray-300 w-1/5 gap-2">
+        <aside className="p-2 flex flex-col border border-gray-300 w-1/5 gap-2 bg-white opacity-70">
           <div
             className="flex items-center h-20 border border-b-2 border-gray-400 pl-2"
             onClick={() => {
@@ -119,8 +125,8 @@ export default function Main() {
         </div>
       </div>
       {username && <h1>Välkommen, {username}!</h1>}
-      {/* Placera bildspelet här */}
-      <Slideshow />
+      {/* Placera bildspelet här
+      <Slideshow /> */}
     </main>
   );
 }

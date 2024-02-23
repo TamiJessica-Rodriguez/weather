@@ -1,15 +1,11 @@
+import "./Header.css";
+import LogoImage from "./assets/globe-solo.png";
+
 export default function Header() {
   return (
-    <header className="flex flew-row h-20">
-      <div className="flex-1 border border-gray-300 items-center justify-center">
-        Proffesionella tjänster
-      </div>
-      <div className="flex-1 border border-gray-300 items-center justify-center">
-        Welcome to your journey
-      </div>
-      <div className="flex-1 border border-gray-300 items-center justify-center">
-        Forskning
-      </div>
+    <header className="flex flex-row h-20 items-center justify-start gap-4 p-3">
+      <img src={LogoImage} alt="" className="h-14" />
+      <div className=" text-3xl .bebas-neue-regular">EARTH MINGLE</div>
     </header>
   );
 }
