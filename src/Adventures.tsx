@@ -48,11 +48,11 @@ export default function Adventures() {
           >
             <h2 className="font-bold p-3">{adventure.title}</h2>
             <p className="p-3">{adventure.description}</p>
-            <div className="bg-black border border-white p-4">
+            <div className="bg-black border border-white p-4 h-64">
               <img
                 src={adventure.url}
                 alt="Activity"
-                className="w-full h-auto rounded-md"
+                className="w-full h-full object-cover"
               />
             </div>
           </div>
