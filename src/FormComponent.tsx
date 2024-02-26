@@ -1,6 +1,7 @@
 // FormComponent.js
 
 import React from "react";
+import "./Header.css";
 
 interface Props {
   title: string;
@@ -35,7 +36,15 @@ const FormComponent: React.FC<Props> = ({
   setShowForm,
 }) => {
   return (
-    <div>
+    <div className="flex flex-row justify-between items-center">
+      <form className="width-adventures-search">
+        <input
+          className="flex p-2"
+          placeholder="Sök bland dina resor"
+          type="text"
+          value={title}
+        />
+      </form>
       {!showForm && (
         <p
           className="text-white cursor-pointer border rounded-md w-1/6 p-2 font-bold"

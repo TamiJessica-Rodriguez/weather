@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import LogoImage from "./assets/globe-solo.png";
 import LoginImage from "./assets/loginPage.webp";
 
 export default function LoginPage() {
@@ -27,14 +28,14 @@ export default function LoginPage() {
         <div className="flex-1"></div>
       </header>
 
-      <div className=" w-1/3 h-1/5">
-        {" "}
-        <form className="flex flex-col items-center gap-3 mt-8 ">
-          <label className="p-3 text-white" htmlFor="username">
-            Enter your username
-          </label>
+      <div className="flex flex-col items-center justify-center w-1/3 h-1/5">
+        <img src={LogoImage} alt="" className="h-24 border border-gray-300 rounded-full" />
+
+        <form className="flex flex-col items-center gap-3  ">
+          <label className="p-3 text-white" htmlFor="username"></label>
           <input
-            className="h-10 rounded-md"
+            placeholder="Enter you name"
+            className="h-10 rounded-md p-2 -m-3"
             type="text"
             id="username"
             name="username"
@@ -44,7 +45,7 @@ export default function LoginPage() {
         </form>
       </div>
 
-      <div className="flex items-center justify-center w-1/3">
+      <div className="flex items-center justify-center w-1/3 mt-5">
         {" "}
         <Link to={{ pathname: "/app", state: { username: username } }}>
           <button

@@ -10,3 +10,11 @@
   font-weight: 400;
   font-style: normal;
 }
+
+.custom-height {
+  height: 13rem; /* 29 * 0.25rem since 1 unit in Tailwind is 0.25rem */
+}
+
+.width-adventures-search {
+  width: 10rem;
+}
