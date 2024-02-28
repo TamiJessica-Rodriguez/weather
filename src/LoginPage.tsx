@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { Link } from "react-router-dom";
 import LogoImage from "./assets/globe-solo.png";
 import LoginImage from "./assets/loginPage.webp";
@@ -6,7 +6,7 @@ import LoginImage from "./assets/loginPage.webp";
 export default function LoginPage() {
   const [username, setUsername] = useState("");
 
-  const handleInputChange = (event) => {
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setUsername(event.target.value);
   };
 
@@ -51,7 +51,7 @@ export default function LoginPage() {
 
       <div className="flex items-center justify-center w-1/3 mt-5">
         {" "}
-        <Link to={{ pathname: "/dashboard", state: { username: username } }}>
+        <Link to={{ pathname: "/dashboard" }}>
           <button
             className={`bg-gray-500 text-white py-2 px-4 rounded-md shadow-md hover:bg-gray-800 ${
               isUsernameValid ? "" : "opacity-50 cursor-not-allowed"

@@ -16,7 +16,7 @@ const Activity = () => {
   const [activities, setActivities] = useState<Activity[]>([]);
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState<File>();
   const [date, setDate] = useState("");
   const [detailText, setDetailText] = useState("");
   const [errors, setErrors] = useState({
@@ -36,8 +36,11 @@ const Activity = () => {
     if (errors.text) setErrors({ ...errors, text: false });
   };
 
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) =>
-    setImage(e.target.files[0]);
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files?.length) {
+      setImage(e.target.files[0]);
+    }
+  };
 
   const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setDate(e.target.value);
@@ -66,7 +69,7 @@ const Activity = () => {
     setTitle("");
     setText("");
     setDate("");
-    setImage(null);
+    setImage(undefined);
     setDetailText("");
     setErrors({ title: false, text: false, date: false });
     setShowForm(false);
@@ -94,20 +97,18 @@ const Activity = () => {
   };
 
   const validateForm = () => {
-    const newErrors = {};
-    if (!title.trim()) newErrors.title = true;
-    if (!text.trim()) newErrors.text = true;
-    if (!date.trim()) newErrors.date = true;
+    const newErrors = {
+      title: !title.trim(),
+      text: !text.trim(),
+      date: !date.trim(),
+    };
     setErrors(newErrors);
 
     return Object.keys(newErrors).length === 0;
   };
 
   return (
-    <div
-      className="bg-cover bg-center bg-fixed mx-auto p-2 gap-3 h-screen"
-      // style={{ backgroundImage: `url(${ActivityImage})` }}
-    >
+    <div className="h-screen p-2 gap-2">
       <FormComponent
         title={title}
         handleTitleChange={handleTitleChange}

@@ -1,5 +1,3 @@
-export default function Bookin() {
-    return(
-        <div>Hejsan</div>
-    )
+export default function Booking() {
+  return <div>Hejsan</div>;
 }

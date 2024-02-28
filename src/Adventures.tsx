@@ -9,7 +9,6 @@ export default function Adventures() {
     description: string;
   };
 
-  // Sample data for mockedAdventures
   const mockedAdventures: Trips[] = [
     {
       id: "1",
@@ -67,57 +66,21 @@ export default function Adventures() {
       description:
         "Ascend to new heights right in the heart of the city! Experience the thrill of mountain climbing against a breathtaking urban backdrop...",
     },
-    {
-      id: "9",
-      title: "Adventure 3",
-      url: "https://media.istockphoto.com/id/1361421117/sv/foto/hiking-couple-climb-up-mountain-ridge.jpg?s=612x612&w=0&k=20&c=Tds4-DsgrCg3E61697QtzmYaqObjMrvcnesy2tLbEcI=",
-      description:
-        "Ascend to new heights right in the heart of the city! Experience the thrill of mountain climbing against a breathtaking urban backdrop...",
-    },
-    {
-      id: "10",
-      title: "Adventure 3",
-      url: "https://media.istockphoto.com/id/1361421117/sv/foto/hiking-couple-climb-up-mountain-ridge.jpg?s=612x612&w=0&k=20&c=Tds4-DsgrCg3E61697QtzmYaqObjMrvcnesy2tLbEcI=",
-      description:
-        "Ascend to new heights right in the heart of the city! Experience the thrill of mountain climbing against a breathtaking urban backdrop...",
-    },
-    {
-      id: "11",
-      title: "Adventure 3",
-      url: "https://media.istockphoto.com/id/1361421117/sv/foto/hiking-couple-climb-up-mountain-ridge.jpg?s=612x612&w=0&k=20&c=Tds4-DsgrCg3E61697QtzmYaqObjMrvcnesy2tLbEcI=",
-      description:
-        "Ascend to new heights right in the heart of the city! Experience the thrill of mountain climbing against a breathtaking urban backdrop...",
-    },
-    {
-      id: "12",
-      title: "Adventure 3",
-      url: "https://media.istockphoto.com/id/1361421117/sv/foto/hiking-couple-climb-up-mountain-ridge.jpg?s=612x612&w=0&k=20&c=Tds4-DsgrCg3E61697QtzmYaqObjMrvcnesy2tLbEcI=",
-      description:
-        "Ascend to new heights right in the heart of the city! Experience the thrill of mountain climbing against a breathtaking urban backdrop...",
-    },
   ];
 
   return (
-    <div
-      className="bg-cover bg-center bg-fixed flex justify-center flex-col m-3"
-      // style={{ backgroundImage: `url(${AdventuresImage})` }}
-    >
-      <div className="grid grid-cols-4 gap-4 p-4 rounded-md border border-gray-800">
-        {/* Iterate over mockedAdventures and render each adventure */}
+    <div className="bg-cover bg-center bg-fixed flex justify-center flex-col border border-slate-400 ml-2 mr-2 rounded-md">
+      <div className="grid grid-cols-3 gap-3 p-2 rounded-md">
         {mockedAdventures.map((adventure, index) => (
           <div
-            className="flex flex-col gap-1 border border-gray-800 rounded-md p-4"
+            className="flex flex-col gap-1 border border-slate-400 rounded-md p-4"
             key={index}
           >
             <h2 className="font-bold p-3">{adventure.title}</h2>
             <p className="p-3">{adventure.description}</p>
-            <div className="bg-black border border-white p-4 h-64">
+            <div className="bg-black border border-white p-4 h-50">
               <Link to="/Booking">
-                <img
-                  src={adventure.url}
-                  alt={adventure.title}
-                  className="w-full h-full object-cover"
-                />
+                <img src={adventure.url} alt={adventure.title} className="" />
               </Link>
             </div>
           </div>

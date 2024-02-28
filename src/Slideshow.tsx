@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const Slideshow = () => {
   // Bildkällor för bildspelet
@@ -12,9 +12,9 @@ const Slideshow = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   // Funktion för att gå till nästa bild
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-  };
+  }, [images.length]);
 
   // Funktion för att gå till föregående bild
   const prevSlide = () => {
@@ -30,7 +30,7 @@ const Slideshow = () => {
     }, 2000);
 
     return () => clearInterval(intervalId);
-  }, []);
+  }, [nextSlide]);
 
   return (
     <div className="slideshow-container">

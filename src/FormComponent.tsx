@@ -1,5 +1,3 @@
-// FormComponent.js
-
 import React from "react";
 import "./Header.css";
 
@@ -10,7 +8,7 @@ interface Props {
   handleTextChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
   date: string;
   handleDateChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  image: File | null;
+  image?: File;
   handleImageChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   errors: {
@@ -37,17 +35,9 @@ const FormComponent: React.FC<Props> = ({
 }) => {
   return (
     <div className="flex flex-row justify-between items-center">
-      {/* <form className="width-adventures-search">
-        <input
-          className="flex p-2"
-          placeholder="Sök bland dina resor"
-          type="text"
-          value={title}
-        />
-      </form> */}
       {!showForm && (
         <p
-          className="text-white cursor-pointer border rounded-md w-1/6 p-2 font-bold"
+          className="text-slate-200 cursor-pointer border rounded-md p-2 font-bold"
           onClick={() => setShowForm(true)}
         >
           Lägg till din resa
@@ -56,7 +46,7 @@ const FormComponent: React.FC<Props> = ({
       {showForm && (
         <form
           onSubmit={handleSubmit}
-          className="max-w-md mx-auto mb-4 bg-white p-4 rounded-md shadow-md"
+          className="max-w-md mx-auto mb-4 bg-white text-slate-400 p-4 rounded-md shadow-md"
         >
           <div>
             <input
@@ -106,7 +96,7 @@ const FormComponent: React.FC<Props> = ({
           <input type="file" onChange={handleImageChange} className="mb-2" />
           <button
             type="submit"
-            className="btn btn-primary rounded-md p-2 flex border border-gray-300"
+            className="btn btn-primary rounded-md p-2 flex border border-gray-400"
           >
             Add Activity
           </button>
