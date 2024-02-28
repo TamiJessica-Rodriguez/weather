@@ -6,14 +6,14 @@ import MainImage from "./assets/activities.webp"; // Tar bort MiddleImage-import
 function DashboardLayout() {
   return (
     <div
-      className="bg-cover bg-center bg-fixed h-screen"
+      className="bg-cover bg-center bg-fixed h-screen text-slate-200"
       style={{ backgroundImage: `url("${MainImage}")` }}
     >
       <Header />
       <div className="h-screen flex flex-col">
         <div className="flex flex-row">
           {/* ASIDE */}
-          <aside className="p-2 flex flex-col w-75 gap-3 rounded-md text-slate-200 border border-slate-400">
+          <aside className="p-2 flex flex-col w-80 gap-3 rounded-md text-slate-200 border border-slate-400">
             <Link to="/dashboard/weather">
               <div className="rounded-sm hover:bg-blue-950  border flex items-center h-20 pl-2">
                 Översikt Väder
@@ -52,4 +52,3 @@ function DashboardLayout() {
 }
 
 export default DashboardLayout;
-
