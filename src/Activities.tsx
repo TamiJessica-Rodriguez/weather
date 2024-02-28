@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import FormComponent from "./FormComponent";
 import ListComponent from "./ListComponent";
-import ActivityImage from "./assets/darkEarth.webp";
 
 interface Activity {
   id: number;
@@ -106,8 +105,8 @@ const Activity = () => {
 
   return (
     <div
-      className="bg-cover bg-center bg-fixed mx-auto p-4 gap-3 h-screen"
-      style={{ backgroundImage: `url(${ActivityImage})` }}
+      className="bg-cover bg-center bg-fixed mx-auto p-2 gap-3 h-screen"
+      // style={{ backgroundImage: `url(${ActivityImage})` }}
     >
       <FormComponent
         title={title}

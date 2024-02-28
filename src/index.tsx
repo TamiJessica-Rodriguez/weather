@@ -8,8 +8,8 @@ import {
 } from "react-router-dom";
 import Activities from "./Activities.tsx";
 import Adventures from "./Adventures.tsx";
-import DashboardLayout from "./DashboardLayout.tsx";
 import Booking from "./Booking.tsx";
+import DashboardLayout from "./DashboardLayout.tsx";
 import LoginPage from "./LoginPage.tsx";
 import Weather from "./WeatherPage.tsx";
 

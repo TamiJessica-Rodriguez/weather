@@ -29,7 +29,11 @@ export default function LoginPage() {
       </header>
 
       <div className="flex flex-col items-center justify-center w-1/3 h-1/5">
-        <img src={LogoImage} alt="" className="h-24 border border-gray-300 rounded-full" />
+        <img
+          src={LogoImage}
+          alt=""
+          className="h-24 border border-gray-300 rounded-full"
+        />
 
         <form className="flex flex-col items-center gap-3  ">
           <label className="p-3 text-white" htmlFor="username"></label>
@@ -47,7 +51,7 @@ export default function LoginPage() {
 
       <div className="flex items-center justify-center w-1/3 mt-5">
         {" "}
-        <Link to={{ pathname: "/app", state: { username: username } }}>
+        <Link to={{ pathname: "/dashboard", state: { username: username } }}>
           <button
             className={`bg-gray-500 text-white py-2 px-4 rounded-md shadow-md hover:bg-gray-800 ${
               isUsernameValid ? "" : "opacity-50 cursor-not-allowed"
