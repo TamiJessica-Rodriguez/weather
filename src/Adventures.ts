@@ -1,4 +1,3 @@
-// Adventures.ts
 export type Trips = {
   id: string;
   title: string;
@@ -7,7 +6,6 @@ export type Trips = {
 };
 
 export const mockedAdventures: Trips[] = [
-  // Your mock adventures data
   {
     id: "1",
     title: "Surfing",
@@ -36,5 +34,4 @@ export const mockedAdventures: Trips[] = [
     description:
       "Ascend to new heights right in the heart of the city! Experience the thrill of mountain climbing against a breathtaking urban backdrop...",
   },
-  // Additional adventures omitted for brevity
 ];

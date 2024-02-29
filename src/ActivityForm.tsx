@@ -1,4 +1,3 @@
-// ActivityForm.tsx
 import React, { ChangeEvent, useRef } from "react";
 
 interface ActivityFormProps {

@@ -6,7 +6,7 @@ import Slideshow from "./Slideshow";
 function DashboardLayout() {
   const location = useLocation();
 
-  // Kontrollera om användaren är på dashboardens startsida
+  // Kontrollerar om användaren är på dashboardens startsida
   const isDashboardHome = location.pathname === "/dashboard";
 
   return (

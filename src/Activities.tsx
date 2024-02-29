@@ -1,6 +1,5 @@
-// Activity.tsx
 import React, { useState } from "react";
-import ActivityForm from "./ActivityForm"; // Ensure this path matches the actual file location
+import ActivityForm from "./ActivityForm";
 
 interface ActivityPost {
   id: number;
