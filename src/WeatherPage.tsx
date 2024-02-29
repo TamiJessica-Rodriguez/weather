@@ -29,7 +29,7 @@ export default function WeatherPage() {
   }, []);
 
   return (
-    <div className="flex h-screen">
+    <div className="flex">
       <div
         className="border border-gray-300 gap-2 p-2"
         // style={{ backgroundImage: `url("${WeatherImage}")` }}

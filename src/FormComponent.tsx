@@ -96,7 +96,7 @@ const FormComponent: React.FC<Props> = ({
           <input type="file" onChange={handleImageChange} className="mb-2" />
           <button
             type="submit"
-            className="btn btn-primary rounded-md p-2 flex border border-gray-400"
+            className="btn btn-primary rounded-md p-2 flex border border-gray-800"
           >
             Add Activity
           </button>

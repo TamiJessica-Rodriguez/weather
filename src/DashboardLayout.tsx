@@ -1,14 +1,10 @@
 import { Link, Outlet } from "react-router-dom";
 import Footer from "./Footer";
 import Header from "./Header";
-import MainImage from "./assets/activities.webp";
 
 function DashboardLayout() {
   return (
-    <div
-      className="bg-cover bg-center bg-fixed text-slate-200"
-      style={{ backgroundImage: `url("${MainImage}")` }}
-    >
+    <div className="bg-cover bg-center bg-fixed text-slate-200 h-screen">
       <Header />
       <div className="flex flex-col">
         <div className="flex flex-row">

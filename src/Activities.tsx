@@ -1,136 +1,122 @@
-import React, { useState } from "react";
-import FormComponent from "./FormComponent";
-import ListComponent from "./ListComponent";
+import React, { ChangeEvent, useRef, useState } from "react";
 
-interface Activity {
+interface ActivityPost {
   id: number;
-  title: string;
-  text: string;
-  date: string;
-  imageUrl: string | null;
-  detailedText: string;
-  showDetails: boolean;
+  name: string;
+  description: string;
+  imageUrl: string;
 }
 
-const Activity = () => {
-  const [activities, setActivities] = useState<Activity[]>([]);
-  const [title, setTitle] = useState("");
-  const [text, setText] = useState("");
-  const [image, setImage] = useState<File>();
-  const [date, setDate] = useState("");
-  const [detailText, setDetailText] = useState("");
-  const [errors, setErrors] = useState({
-    title: false,
-    text: false,
-    date: false,
-  });
-  const [showForm, setShowForm] = useState(false);
+const Activity: React.FC = () => {
+  const [posts, setPosts] = useState<ActivityPost[]>([]);
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [image, setImage] = useState<File | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setTitle(e.target.value);
-    if (errors.title) setErrors({ ...errors, title: false });
-  };
-
-  const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setText(e.target.value);
-    if (errors.text) setErrors({ ...errors, text: false });
-  };
-
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files?.length) {
+  const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
       setImage(e.target.files[0]);
     }
   };
 
-  const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setDate(e.target.value);
-    if (errors.date) setErrors({ ...errors, date: false });
-  };
-
-  const handleDetailTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) =>
-    setDetailText(e.target.value);
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (image) {
+      const newPost: ActivityPost = {
+        id: posts.length + 1,
+        name,
+        description,
+        imageUrl: URL.createObjectURL(image),
+      };
+      setPosts((prevPosts) => [...prevPosts, newPost]);
 
-    if (!validateForm()) return;
-
-    const newActivity = {
-      id: activities.length + 1,
-      title,
-      text,
-      date,
-      imageUrl: image ? URL.createObjectURL(image) : null,
-      detailedText: "",
-      showDetails: false,
-    };
-
-    setActivities([...activities, newActivity]);
-    setTitle("");
-    setText("");
-    setDate("");
-    setImage(undefined);
-    setDetailText("");
-    setErrors({ title: false, text: false, date: false });
-    setShowForm(false);
-  };
-
-  const toggleDetails = (id: number) => {
-    const updatedActivities = activities.map((activity) => {
-      if (activity.id === id) {
-        return { ...activity, showDetails: !activity.showDetails };
-      }
-      return activity;
-    });
-    setActivities(updatedActivities);
-  };
-
-  const saveDetailText = (id: number) => {
-    const updatedActivities = activities.map((activity) => {
-      if (activity.id === id) {
-        return { ...activity, detailedText: detailText, showDetails: false };
-      }
-      return activity;
-    });
-    setActivities(updatedActivities);
-    setDetailText("");
-  };
-
-  const validateForm = () => {
-    const newErrors = {
-      title: !title.trim(),
-      text: !text.trim(),
-      date: !date.trim(),
-    };
-    setErrors(newErrors);
-
-    return Object.keys(newErrors).length === 0;
+      // Nollställ formen
+      setName("");
+      setDescription("");
+      if (fileInputRef.current) fileInputRef.current.value = "";
+      setImage(null);
+    }
   };
 
   return (
-    <div className="h-screen p-2 gap-2">
-      <FormComponent
-        title={title}
-        handleTitleChange={handleTitleChange}
-        text={text}
-        handleTextChange={handleTextChange}
-        date={date}
-        handleDateChange={handleDateChange}
-        image={image}
-        handleImageChange={handleImageChange}
-        handleSubmit={handleSubmit}
-        errors={errors}
-        showForm={showForm}
-        setShowForm={setShowForm}
-      />
-      <ListComponent
-        activities={activities}
-        toggleDetails={toggleDetails}
-        detailText={detailText}
-        handleDetailTextChange={handleDetailTextChange}
-        saveDetailText={saveDetailText}
-      />
-    </div>
+    <>
+      <form
+        onSubmit={handleSubmit}
+        className="m-4 p-4 border border-gray-300 rounded-lg"
+      >
+        <div className="mb-4">
+          <label
+            htmlFor="name"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Resans namn:
+          </label>
+          <input
+            type="text"
+            id="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            htmlFor="description"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Beskrivning:
+          </label>
+          <textarea
+            id="description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            required
+            className="mt-1 p-2 border border-gray-300 rounded-md w-full h-24"
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            htmlFor="image"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Bild:
+          </label>
+          <input
+            type="file"
+            id="image"
+            ref={fileInputRef}
+            onChange={handleImageChange}
+            accept="image/*"
+            required
+            className="mt-1 p-2 border border-gray-300 rounded-md"
+          />
+        </div>
+        <button
+          type="submit"
+          className="py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+        >
+          Lägg till post
+        </button>
+      </form>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {posts.map((post) => (
+          <div
+            key={post.id}
+            className="m-4 p-4 border border-gray-200 rounded-lg"
+          >
+            <h2 className="text-lg font-semibold">{post.name}</h2>
+            <p className="text-gray-700">{post.description}</p>
+            <img
+              src={post.imageUrl}
+              alt="Resebild"
+              className="mt-2 max-w-full h-auto rounded-md"
+            />
+          </div>
+        ))}
+      </div>
+    </>
   );
 };
 
