@@ -69,23 +69,21 @@ export default function Adventures() {
   ];
 
   return (
-    <div className="bg-cover bg-center bg-fixed flex justify-center flex-col border border-slate-400 ml-2 mr-2 rounded-md">
-      <div className="grid grid-cols-3 gap-3 p-2 rounded-md">
-        {mockedAdventures.map((adventure, index) => (
-          <div
-            className="flex flex-col gap-1 border border-slate-400 rounded-md p-4"
-            key={index}
-          >
-            <h2 className="font-bold p-3">{adventure.title}</h2>
-            <p className="p-3">{adventure.description}</p>
-            <div className="bg-black border border-white p-4 h-50">
-              <Link to="/Booking">
-                <img src={adventure.url} alt={adventure.title} className="" />
-              </Link>
-            </div>
+    <div className="grid md:grid-cols-3 grid-cols-2 gap-3 p-2 rounded-md text-blue-950">
+      {mockedAdventures.map((adventure, index) => (
+        <div
+          className="flex flex-col gap-1 border border-blue-950 font-medium rounded-md p-4"
+          key={index}
+        >
+          <h2 className="font-extrabold p-3">{adventure.title}</h2>
+          <p className="p-3">{adventure.description}</p>
+          <div className="bg-black border border-white p-4 h-50">
+            <Link to="/Booking">
+              <img src={adventure.url} alt={adventure.title} className="" />
+            </Link>
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
   );
 }
