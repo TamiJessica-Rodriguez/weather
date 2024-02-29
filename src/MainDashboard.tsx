@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import MiddleImage from "./assets/logoCool.webp";
 
-const Slideshow = () => {
+const MainDashboard = () => {
   const images = [
     "https://images.unsplash.com/photo-1516822487734-69ff4b9bf49d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c2FmYXJpJTIwYW5pbWFsc3xlbnwwfHwwfHx8MA%3D%3D",
 
@@ -87,4 +87,4 @@ const Slideshow = () => {
   );
 };
 
-export default Slideshow;
+export default MainDashboard;

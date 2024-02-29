@@ -1,7 +1,7 @@
 import { Link, Outlet, useLocation } from "react-router-dom";
 import Footer from "./Footer";
 import Header from "./Header";
-import Slideshow from "./Slideshow";
+import Maindashboard from "./MainDashboard";
 
 function DashboardLayout() {
   const location = useLocation();
@@ -34,7 +34,7 @@ function DashboardLayout() {
 
         {/* Main */}
         <main className="flex-1 p-4">
-          {isDashboardHome && <Slideshow />}
+          {isDashboardHome && <Maindashboard />}
           <Outlet />
         </main>
       </div>
