@@ -2,7 +2,7 @@ import LogoImage from "./assets/globe-solo.png";
 
 export default function Header() {
   return (
-    <header className="flex flex-row items-center justify-between gap-4 p-3 border-b border-slate-400 mb-4 pb-7">
+    <header className="flex flex-row items-center justify-between gap-4 p-3 border-b border-b-blue-950 pb-7">
       <div className="flex flex-row items-center gap-4">
         <img
           src={LogoImage}

@@ -10,11 +10,11 @@ function DashboardLayout() {
   const isDashboardHome = location.pathname === "/dashboard";
 
   return (
-    <div className="bg-cover bg-center bg-fixed text-slate-200 bg-slate-200">
+    <div className="bg-cover bg-center bg-fixed bg-slate-200">
       <Header />
       <div className="flex flex-col md:flex-row">
         {/* ASIDE */}
-        <aside className="p-2 flex flex-col w-full md:w-80 gap-3 rounded-md text-slate-200 border border-slate-400">
+        <aside className="p-2 flex flex-col md:w-80 border-r border-blue-950">
           <Link to="/dashboard/weather">
             <div className="rounded-sm hover:bg-slate-300 border flex items-center h-20 pl-2 text-blue-950 font-semibold">
               Weather overview
@@ -33,7 +33,7 @@ function DashboardLayout() {
         </aside>
 
         {/* Main */}
-        <main className="flex-1 p-4">
+        <main className="flex-1 p-3">
           {isDashboardHome && <Maindashboard />}
           <Outlet />
         </main>

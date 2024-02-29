@@ -39,7 +39,7 @@ const MainDashboard = () => {
           className="h-full w-4/5 border border-slate-400"
         />
       </div>
-      -
+      
       <div className="flex justify-around border border-blue-950 h-80 gap-2 p-3 flex-col mt-10 rounded-sm bg-white">
         <div className="flex flex-row items-center text-blue-950 p-3 gap-4">
           <div className="flex-1 border h-50 p-3 hover:bg-slate-400 border-blue-950 bg-slate-200">
@@ -74,8 +74,9 @@ const MainDashboard = () => {
           </div>
         </div>
       </div>
-      <div className="slideshow-container flex justify-center items-center mt-10">
+      <div className="slideshow-container flex items-center mt-10 justify-around">
         <button onClick={prevSlide}>Previous</button>
+
         <img
           src={images[currentImageIndex]}
           alt={`Slide ${currentImageIndex + 1}`}

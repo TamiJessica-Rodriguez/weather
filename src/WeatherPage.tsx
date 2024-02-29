@@ -11,7 +11,6 @@ interface WeatherData {
 export default function WeatherPage() {
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
 
-  // Funktionen som hämtar väderdata
   const fetchWeatherData = async () => {
     try {
       const response = await fetch(
@@ -24,7 +23,7 @@ export default function WeatherPage() {
     }
   };
 
-  // Hämta väderdata när komponenten monteras
+  // Hämtar väderdata när komponenten monteras
   useEffect(() => {
     fetchWeatherData();
   }, []);
