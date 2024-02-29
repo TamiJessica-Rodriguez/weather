@@ -14,9 +14,11 @@ export default function Header() {
           EARTH MINGLE
         </div>
       </div>
-      <div className="font-semibold">Share you experiences</div>
+
+      <div className="font-extrabold text-blue-950 text-2xl">SHARE YOUR EXPERIENCE</div>
+
       <button className="bg-blue-950 text-white py-2 px-4 rounded hover:bg-blue-800 transition duration-300 ease-in-out">
-        Bli Medlem
+        Join now
       </button>
     </header>
   );

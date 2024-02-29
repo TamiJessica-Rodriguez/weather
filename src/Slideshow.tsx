@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import MiddleImage from "./assets/jonatan-pie-OPOg0fz5uIs-unsplash.jpg";
+import MiddleImage from "./assets/logoCool.webp";
 
 const Slideshow = () => {
   // Bildkällor för bildspelet
@@ -37,24 +37,24 @@ const Slideshow = () => {
 
   return (
     <div>
-      <div className="flex justify-around border border-blue-950 h-80 rounded-sm">
+      <div className="flex justify-around h-80">
         <img
           src={MiddleImage}
           alt=""
-          className="h-full w-full border border-slate-400"
+          className="h-full w-4/5 border border-slate-400"
         />
       </div>
       -
-      <div className="flex justify-around border border-blue-950 h-80 gap-2 p-3 flex-col mt-10 rounded-sm">
+      <div className="flex justify-around border border-blue-950 h-80 gap-2 p-3 flex-col mt-10 rounded-sm bg-white">
         <div className="flex flex-row items-center text-blue-950 p-3 gap-4">
-          <div className="flex-1 border h-50 p-3 hover:bg-slate-300 border-blue-950">
+          <div className="flex-1 border h-50 p-3 hover:bg-slate-400 border-blue-950 bg-slate-200">
             <h2 className="font-extrabold">Find the best places to eat</h2>
             <p>
               4.3 million restaurants - everything from streetfood to fine
               dining
             </p>
           </div>
-          <div className="flex-1 border h-50 p-3 hover:bg-slate-300 border-blue-950">
+          <div className="flex-1 border h-50 p-3 hover:bg-slate-400 bg-slate-200 border-blue-950">
             <h2 className="font-extrabold">Find the best places to eat</h2>
             <p className="flex-1">
               4.3 million restaurants - everything from streetfood to fine
@@ -63,14 +63,14 @@ const Slideshow = () => {
           </div>
         </div>
         <div className="flex flex-row  text-blue-950 p-3 gap-4 items-center">
-          <div className="flex-1 border p-3 gap-4 hover:bg-slate-300 border-blue-950">
+          <div className="flex-1 border p-3 gap-4 hover:bg-slate-400 border-blue-950 bg-slate-200">
             <h2 className="font-extrabold">Find the best places to eat</h2>
             <p>
               4.3 million restaurants - everything from streetfood to fine
               dining
             </p>
           </div>
-          <div className="flex-1 border p-3 gap-4 hover:bg-slate-300 border-blue-950">
+          <div className="flex-1 border p-3 gap-4 hover:bg-slate-400 border-blue-950 bg-slate-200">
             <h2 className="font-extrabold">Find the best places to eat</h2>
             <p>
               4.3 million restaurants - everything from streetfood to fine

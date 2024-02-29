@@ -14,10 +14,10 @@ function DashboardLayout() {
       <Header />
       <div className="flex flex-col md:flex-row">
         {/* ASIDE */}
-        <aside className="p-2 flex flex-col w-full md:w-80 gap-3 rounded-md text-slate-200 border border-slate-400 ">
+        <aside className="p-2 flex flex-col w-full md:w-80 gap-3 rounded-md text-slate-200 border border-slate-400">
           <Link to="/dashboard/weather">
             <div className="rounded-sm hover:bg-slate-300 border flex items-center h-20 pl-2 text-blue-950 font-semibold">
-              Översikt Väder
+              Weather overview
             </div>
           </Link>
           <Link to="/dashboard/activities">
