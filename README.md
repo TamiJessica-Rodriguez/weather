@@ -3,6 +3,8 @@
 ## Projektbeskrivning
 I det här projektet har jag skapat en Travel-App som jag har döpt till EarthMingle, med hjälp av React och TypeScript. EarthMingle är bokningsapp samt resedagbok. Det är även en community för resenärer att dela med sig av sina erfarenheter och upptäcka nya destinationer tillsammans.
 
+[Google](https://www.google.com)
+
 ## Bygga och Köra Projektet
 
 npm install

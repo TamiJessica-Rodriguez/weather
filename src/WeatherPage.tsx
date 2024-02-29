@@ -31,7 +31,7 @@ export default function WeatherPage() {
 
   return (
     <div className="flex">
-      <div className="border border-gray-600 gap-2 p-2 text-slate-600 h-screen">
+      <div className="s gap-2 p-2 text-blue-950 h-screen">
         {weatherData && (
           <div className="">
             <img
