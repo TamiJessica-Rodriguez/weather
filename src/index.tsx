@@ -8,7 +8,6 @@ import {
 } from "react-router-dom";
 import Activities from "./Activities.tsx";
 import Adventures from "./Adventures.tsx";
-import Booking from "./Booking.tsx";
 import DashboardLayout from "./DashboardLayout.tsx";
 import LoginPage from "./LoginPage.tsx";
 import Weather from "./WeatherPage.tsx";
@@ -21,7 +20,6 @@ const router = createBrowserRouter(
         <Route path="weather" Component={Weather} />
         <Route path="activities" Component={Activities} />
         <Route path="adventures" Component={Adventures} />
-        <Route path="booking" Component={Booking} />
         <Route path="*" element={<span>Sidan finns inte...</span>} />
       </Route>
     </Route>
