@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import LogoImage from "./assets/weather.webp";
 interface WeatherData {
   current: {
     temperature_2m: number;
@@ -30,12 +31,14 @@ export default function WeatherPage() {
 
   return (
     <div className="flex">
-      <div
-        className="border border-gray-300 gap-2 p-2"
-        // style={{ backgroundImage: `url("${WeatherImage}")` }}
-      >
+      <div className="border border-gray-600 gap-2 p-2 text-slate-600 h-screen">
         {weatherData && (
           <div className="">
+            <img
+              src={LogoImage}
+              alt=""
+              className="h-20 border border-slate-400 rounded-full"
+            />
             <h2>Dagens väder:</h2>
             <p>Temperatur: {weatherData.current.temperature_2m} °C</p>
             <p>Tid: {weatherData.current.time}</p>

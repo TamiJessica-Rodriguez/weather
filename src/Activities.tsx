@@ -40,7 +40,7 @@ const Activity: React.FC = () => {
   };
 
   return (
-    <>
+    <div className="h-screen">
       <form
         onSubmit={handleSubmit}
         className="m-4 p-4 border border-gray-300 rounded-lg"
@@ -116,7 +116,7 @@ const Activity: React.FC = () => {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 
