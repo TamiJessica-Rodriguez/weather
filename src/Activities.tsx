@@ -53,7 +53,7 @@ const Activity: React.FC = () => {
             <img
               src={post.imageUrl}
               alt={post.name}
-              className="mt-2 max-w-full h-auto rounded-md"
+              className=" max-w-full h-auto rounded-md"
             />
           </div>
         ))}
