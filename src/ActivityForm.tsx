@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useRef } from "react";
 
-interface ActivityFormProps {
+interface Props {
   name: string;
   description: string;
   setImage: (file: File | null) => void;
@@ -9,7 +9,7 @@ interface ActivityFormProps {
   handleSubmit: (e: React.FormEvent) => void;
 }
 
-const ActivityForm: React.FC<ActivityFormProps> = ({
+const ActivityForm: React.FC<Props> = ({
   name,
   description,
   setImage,
